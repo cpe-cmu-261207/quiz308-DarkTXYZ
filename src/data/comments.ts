@@ -1,9 +1,15 @@
+import { Store } from "pullstate"
+
 export type CommentType = {
   username: string;
   userImagePath: string;
   commentText: string;
   likeNum: number;
   replies: CommentType[]
+}
+
+export type CommentList = {
+  data : CommentType[]
 }
 
 export const comments: CommentType[] = [
@@ -38,3 +44,6 @@ export const comments: CommentType[] = [
   }
 ]
 
+export const CommentStore = new Store<CommentList>({
+  data : comments
+})
